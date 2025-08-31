@@ -1,5 +1,5 @@
-#include <stdio.h>
+#include "Game/Chess.h"
 
 int main() {
-    printf("Hello, World!\n");
+    Run();
 }

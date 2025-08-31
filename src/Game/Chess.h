@@ -1,0 +1,15 @@
+#pragma once
+
+#include "raylib.h"
+
+
+typedef struct Game {
+    float squareSize;
+    Rectangle board[8][8];
+} Game;
+
+void Run();
+
+void InitGame(Game *game);
+
+void DrawBoard(Game *game);
