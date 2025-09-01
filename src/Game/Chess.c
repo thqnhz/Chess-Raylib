@@ -5,7 +5,10 @@
 void Run() {
     Game game;
     InitWindow(1280, 720, "Chess");
+    SetTargetFPS(60);
     InitGame(&game);
+
+    // Main game loop
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(DARKGREEN);
@@ -14,6 +17,7 @@ void Run() {
         DrawRowLabels(&game);
         EndDrawing();
     }
+
     CloseWindow();
 }
 
