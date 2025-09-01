@@ -2,10 +2,11 @@
 
 #include "raylib.h"
 
+#define NUM_SQUARE 8
 
 typedef struct Game {
     float squareSize;
-    Rectangle board[8][8];
+    Rectangle board[NUM_SQUARE][NUM_SQUARE];
     Font font;
 } Game;
 
@@ -15,6 +16,6 @@ void InitGame(Game *game);
 
 void DrawBoard(Game *game);
 
-void DrawColLabels(Game *game);
+void DrawColLabel(Game *game, const Rectangle *r, const char *label);
 
-void DrawRowLabels(Game *game);
+void DrawRowLabel(Game *game, const Rectangle *r, const char *label);
