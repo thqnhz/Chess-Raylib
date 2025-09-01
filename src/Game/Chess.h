@@ -16,6 +16,6 @@ void InitGame(Game *game);
 
 void DrawBoard(Game *game);
 
-void DrawColLabel(Game *game, const Rectangle *r, const char *label);
-
 void DrawRowLabel(Game *game, const Rectangle *r, const char *label);
+
+void DrawColLabel(Game *game, const Rectangle *r, const char *label);

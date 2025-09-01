@@ -36,20 +36,20 @@ void DrawBoard(Game *game) {
         for (auto j = 0; j < NUM_SQUARE; j++) {
             Color color = (i + j) % 2 == 0 ? LIGHTGRAY : GRAY;
             DrawRectangleRec(game->board[i][j], color);
-            // Draw col labels
-            if (j == 7) {
-                DrawColLabel(game, &game->board[i][j], TextFormat("%c", rowLabels[i]));
-            }
             // Draw row labels
+            if (j == 7) {
+                DrawRowLabel(game, &game->board[i][j], TextFormat("%c", rowLabels[i]));
+            }
+            // Draw col labels
             if (i == 0) {
                 const char *colLabel = TextFormat("%d", -j + 8);
-                DrawRowLabel(game, &game->board[i][j], colLabel);
+                DrawColLabel(game, &game->board[i][j], colLabel);
             }
         }
     }
 }
 
-void DrawRowLabel(Game *game, const Rectangle *r, const char *label) {
+void DrawColLabel(Game *game, const Rectangle *r, const char *label) {
     Vector2 labelSize = MeasureTextEx(game->font, label, 25, 1);
     Vector2 pos = {
         .x = r->x - labelSize.x - 5,
@@ -58,7 +58,7 @@ void DrawRowLabel(Game *game, const Rectangle *r, const char *label) {
     DrawTextEx(game->font, label, pos, 25, 1, BLACK);
 }
 
-void DrawColLabel(Game *game, const Rectangle *r, const char *label) {
+void DrawRowLabel(Game *game, const Rectangle *r, const char *label) {
     Vector2 pos = {
         .x = r->x + game->squareSize / 2 - MeasureTextEx(game->font, TextFormat("%c", label), 25, 1).x / 2.0f,
         .y = r->y + game->squareSize
